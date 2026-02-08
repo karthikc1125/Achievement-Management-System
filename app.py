@@ -29,6 +29,7 @@ UPLOAD_FOLDER = app.config["UPLOAD_FOLDER"]
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
+
 # ------------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------------
@@ -230,6 +231,7 @@ def student():
 
         if student_data:
             # Store user information in session
+            session.permanent = True
             session['logged_in'] = True
             session['student_id'] = student_data[1]
             session['student_name'] = student_data[0]
@@ -263,6 +265,7 @@ def teacher():
 
         if teacher_data:
             # Store user information in session
+            session.permanent = True
             session['logged_in'] = True
             session['teacher_id'] = teacher_data[1]
             session['teacher_name'] = teacher_data[0]
